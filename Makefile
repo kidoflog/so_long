@@ -6,33 +6,31 @@
 #    By: kkido <kkido@student.42tokyo.jp>           +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/04/29 12:55:40 by kkido             #+#    #+#              #
-#    Updated: 2025/08/06 14:48:44 by kkido            ###   ########.fr        #
+#    Updated: 2025/08/21 14:52:24 by kkido            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = so_long
 
-SRCS = main.c \
+SRCS = main.c error_handling.c handle_map.c
 
 
 OBJS = $(SRCS:.c=.o)
 
 CC = cc
-CFLAGS = -Wall -Wextra -Werror -Ilibft -Iminilibx-linux
-LIBS = -Llibft -lft -Lminilibx-linux -lmlx -lX11 -lXext -lm
+CFLAGS = -Wall -Wextra -Werror -Ilibft -Iminilibx_mms_20191025_beta
+ LIBS = -Llibft -lft -Lminilibx_mms_20191025_beta -lmlx -framework OpenGL -framework AppKit
 
 RM = rm -f
 
 all: $(NAME)
 
-$(NAME): $(OBJS) libft/libft.a minilibx-linux/libmlx.a
+$(NAME): $(OBJS) libft/libft.a
+	make -C minilibx_mms_20191025_beta
 	$(CC) $(CFLAGS) $(OBJS) $(LIBS) -o $(NAME)
 
 libft/libft.a:
 	make -C libft
-
-minilibx-linux/libmlx.a:
-	make -C minilibx-linux
 
 %.o: %.c so_long.h
 	$(CC) $(CFLAGS) -c $< -o $@

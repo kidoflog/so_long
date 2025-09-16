@@ -6,7 +6,7 @@
 /*   By: kkido <kkido@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/04 16:58:22 by kkido             #+#    #+#             */
-/*   Updated: 2025/08/06 16:23:40 by kkido            ###   ########.fr       */
+/*   Updated: 2025/09/16 11:49:11 by kkido            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,17 +14,19 @@
 
 int	main(int argc, char *argv[])
 {
-	void	*mlx_ptr;
-	char	**map;
-	size_t	i;
+	t_mlxstate	*mlxstate;
+	char		**map;
+	size_t		i;
 
 	i = 0;
 	(void)argv;
 	if (argc != 2)
-		error_message_and_exit(1);
-	mlx_ptr = mlx_init();
-	if (!mlx_ptr)
-		error_message_and_exit(2);
-	mlx_new_window(mlx_ptr, 1280, 1280, "so_long");
+		free_and_exit(1, NULL);
 	map = get_map_from_file(argv[1]);
+	mlxstate.mlx_ptr = mlx_init();
+	if (!mlxstate.mlx_ptr)
+		free_and_exit(2, map);
+	win_ptr = mlx_new_window(mlx_ptr, 1280, 1280, "so_long");
+	if (!win_ptr)
+		free_and_exit(2, map);
 }
