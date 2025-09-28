@@ -6,7 +6,7 @@
 /*   By: kkido <kkido@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/04 17:15:30 by kkido             #+#    #+#             */
-/*   Updated: 2025/09/16 14:39:18 by kkido            ###   ########.fr       */
+/*   Updated: 2025/09/28 15:04:31 by kkido            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,7 @@ typedef struct s_mlxstate
 
 void		free_and_exit(size_t id, char **map);
 char		**get_map_from_file(char *map_name);
+size_t		count_map_lines(char *map_name);
 void		map_error_check(char **map, size_t culumn);
 size_t		check_first_and_last_line(char *line, size_t row);
 t_mapstate	check_mid_line(char *line, size_t *row, t_mapstate mapstate);

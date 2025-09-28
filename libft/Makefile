@@ -6,7 +6,7 @@
 #    By: kkido <kkido@student.42tokyo.jp>           +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/04/29 12:55:40 by kkido             #+#    #+#              #
-#    Updated: 2025/06/06 16:22:54 by kkido            ###   ########.fr        #
+#    Updated: 2025/09/28 17:24:11 by kkido            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,6 +22,7 @@ SRC = ft_isalpha.c ft_isdigit.c ft_isalnum.c ft_isascii.c ft_isprint.c \
       ft_lstnew_bonus.c ft_lstadd_front_bonus.c ft_lstsize_bonus.c ft_lstlast_bonus.c \
       ft_lstadd_back_bonus.c ft_lstdelone_bonus.c ft_lstclear_bonus.c ft_lstiter_bonus.c ft_lstmap_bonus.c \
       get_next_line_bonus.c get_next_line_utils_bonus.c printf_func.c printf_utils1.c printf_utils2.c \
+      get_next_line_option.c
 
 OBJ = $(SRC:.c=.o)
 

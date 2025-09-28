@@ -6,7 +6,7 @@
 /*   By: kkido <kkido@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/06 15:26:11 by kkido             #+#    #+#             */
-/*   Updated: 2025/09/05 17:33:13 by kkido            ###   ########.fr       */
+/*   Updated: 2025/09/20 14:51:14 by kkido            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,18 @@
 
 void	free_and_exit(size_t id, char **map)
 {
-	if (map && *map)
-		free(*map);
+	size_t	i;
+
+	i = 0;
+	if (map)
+	{
+		while (map[i])
+		{
+			free(map[i]);
+			i++;
+		}
+		free(map);
+	}
 	if (id == 1)
 		ft_printf("Usage: ./so_long \"mapfile\"\n");
 	else if (id == 2)

@@ -6,7 +6,7 @@
 /*   By: kkido <kkido@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/28 17:29:21 by kkido             #+#    #+#             */
-/*   Updated: 2025/06/06 16:19:42 by kkido            ###   ########.fr       */
+/*   Updated: 2025/09/28 17:25:14 by kkido            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,6 +75,7 @@ void				ft_lstclear(t_list **lst, void (*del)(void *));
 void				ft_lstiter(t_list *lst, void (*f)(void *));
 t_list				*ft_lstmap(t_list *lst, void *(*f)(void *),
 						void (*del)(void *));
+char				*get_next_line(int fd, int option);
 char				*get_next_line_from_fd(int fd, char **result, char **record,
 						ssize_t read_result);
 char				*reset_gnl(char **record, char **buf, char **result);
@@ -100,5 +101,6 @@ int					format_upper_x_fanc_for_printf(unsigned int num,
 						int bytes_count);
 int					print_in_upper_hex_for_printf(unsigned long num);
 int					format_percent_fanc_for_printf(int bytes_count);
+char				*free_option(char *record);
 
 #endif

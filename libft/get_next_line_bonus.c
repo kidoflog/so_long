@@ -6,13 +6,13 @@
 /*   By: kkido <kkido@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/07 11:43:37 by kkido             #+#    #+#             */
-/*   Updated: 2025/06/06 16:22:06 by kkido            ###   ########.fr       */
+/*   Updated: 2025/09/28 17:25:00 by kkido            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*get_next_line(int fd)
+char	*get_next_line(int fd, int option)
 {
 	static char	*record[1048576];
 	char		*result;
@@ -22,6 +22,8 @@ char	*get_next_line(int fd)
 	read_result = 1;
 	if (fd < 0 || BUFFER_SIZE <= 0)
 		return (NULL);
+	if (option == 1)
+		return (free_option(record[fd]));
 	if (record[fd])
 	{
 		result = ft_strdup_for_gnl(record[fd]);
@@ -73,6 +75,8 @@ char	*return_eof_or_error(ssize_t read_result, char **result, char **record,
 {
 	if (read_result == 0)
 	{
+		free(*record);
+		*record = NULL;
 		if ((*result) && (*result)[0] != '\0')
 			return (*result);
 		free(*result);
